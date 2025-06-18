@@ -4,6 +4,7 @@
     "target": "ES2024",
     "module": "nodenext",
     "rootDir": "./src",
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,

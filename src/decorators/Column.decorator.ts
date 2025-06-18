@@ -1,10 +1,11 @@
-import "reflect-metadata";
 import { config } from "../config/globals";
 import { ColumnType } from "../core/ColumnTypes";
 
 export function Column(columnOptions?: ColumnOptions): PropertyDecorator {
   return function (target: any, propertyKey: string | symbol) {
-    const type = Reflect.getMetadata("design:type", target);
+    const type = Reflect.getMetadata("design:type", target, propertyKey)[
+      "name"
+    ];
     const tableToken = target.constructor["name"];
     const columnName = columnOptions?.name ?? (propertyKey as string);
     const props = {

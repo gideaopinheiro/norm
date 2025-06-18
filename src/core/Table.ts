@@ -3,6 +3,7 @@ import { Column, ColumnProps } from "./Column";
 export class Table {
   private _name: string | null = null;
   private _columns = new Set<Column>();
+  private _primaryColumn: Column | null = null;
 
   setName(n: string) {
     if (!this._name) {
@@ -12,6 +13,13 @@ export class Table {
 
   addColumn(colProp: ColumnProps) {
     this._columns.add(Column.new(colProp));
+  }
+
+  setPrimaryColumn(colProp: ColumnProps) {
+    if (this._primaryColumn) {
+      throw new Error(`Tables can have only one primary column`);
+    }
+    this._primaryColumn = Column.new(colProp);
   }
 
   serialize() {

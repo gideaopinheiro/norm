@@ -1,7 +1,8 @@
+import "reflect-metadata";
 import { config } from "./config/globals";
-import { DataSource } from "./core/DataSource";
 import { Post } from "./examples/Posts";
 import { User } from "./examples/Users";
+import { DataSource } from "./core/DataSource";
 
 console.log(config.tables);
 console.log(config.serialize());

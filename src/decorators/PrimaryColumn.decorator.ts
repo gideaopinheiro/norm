@@ -5,7 +5,9 @@ export function PrimaryColumn(
   columnOptions?: PrimaryColumnOptions,
 ): PropertyDecorator {
   return function (target: any, propertyKey: string | symbol) {
-    const type = Reflect.getMetadata("design:type", target);
+    const type = Reflect.getMetadata("design:type", target, propertyKey)[
+      "name"
+    ];
     const tableToken = target.constructor["name"];
     const columnName = columnOptions?.name ?? (propertyKey as string);
     const props = {
