@@ -16,6 +16,9 @@ export const config = {
     }
     config.tables.get(tableToken)?.addColumn(column);
   },
+  setPrimaryColumn: (tableToken: string, primaryColumn: ColumnProps) => {
+    console.log(`Setting ${primaryColumn.name} as PK for ${tableToken}`);
+  },
   serialize() {
     return {
       tables: Array.from(config.tables).map(([_, tbl]) => tbl.serialize()),

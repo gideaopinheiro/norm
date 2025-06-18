@@ -1,6 +1,6 @@
 import { config } from "../config/globals";
 
-export function Entity(tableOptions?: string | TableOptions) {
+export function Entity(tableOptions?: string | TableOptions): ClassDecorator {
   return function (constructor: Function) {
     const tableToken = constructor.name;
     const tableName =
